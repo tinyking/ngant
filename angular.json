@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "ngant": {
+      "projectType": "library",
+      "root": "projects/ngant",
+      "sourceRoot": "projects/ngant/src",
+      "prefix": "gant",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngant/tsconfig.lib.json",
+            "project": "projects/ngant/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngant/src/test.ts",
+            "tsConfig": "projects/ngant/tsconfig.spec.json",
+            "karmaConfig": "projects/ngant/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngant/tsconfig.lib.json",
+              "projects/ngant/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "omniee-ngant"
 }
