@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "omniee-ngant": {
+    "ngant-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "omniee-ngant:build"
+            "browserTarget": "ngant-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "omniee-ngant:build:production"
+              "browserTarget": "ngant-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "omniee-ngant:build"
+            "browserTarget": "ngant-app:build"
           }
         },
         "test": {
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "omniee-ngant:serve"
+            "devServerTarget": "ngant-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "omniee-ngant:serve:production"
+              "devServerTarget": "ngant-app:serve:production"
             }
           }
         }
