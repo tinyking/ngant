@@ -1,8 +1,11 @@
 {
-  "name": "@omniee/ngant",
+  "name": "@tinyking/ngant",
   "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": "^8.2.13",
     "@angular/core": "^8.2.13"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/omniee-ngant",
+            "outputPath": "dist/ngant-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -160,5 +160,5 @@
         }
       }
     }},
-  "defaultProject": "omniee-ngant"
+  "defaultProject": "ngant-app"
 }
