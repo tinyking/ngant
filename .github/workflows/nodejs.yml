@@ -20,7 +20,7 @@ jobs:
     - name: yarn install, build, and test
       run: |
         yarn
-        yarn start build --if-present
-        yarn start test
+        yarn build --if-present
+        yarn test
       env:
         CI: true
