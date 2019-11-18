@@ -1,6 +1,34 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>日期</nz-form-label>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>区间</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入日期">
+      <nz-range-picker formControlName="dateRange"
+      ></nz-range-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>年</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入日期">
+      <nz-year-picker formControlName="dateYear"
+      ></nz-year-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>年月</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入日期">
+      <nz-month-picker formControlName="dateMonth"
+      ></nz-month-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>周</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入日期">
+      <nz-week-picker formControlName="dateWeek"
+      ></nz-week-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>年月日</nz-form-label>
     <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="请输入日期">
       <nz-date-picker formControlName="date"></nz-date-picker>
     </nz-form-control>

@@ -1,11 +1,27 @@
 import { Directive, Host, HostListener, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { NzDatePickerComponent, NzSelectComponent } from 'ng-zorro-antd';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import {
+  NzDatePickerComponent,
+  NzMonthPickerComponent, NzRangePickerComponent,
+  NzSelectComponent,
+  NzWeekPickerComponent,
+  NzYearPickerComponent
+} from 'ng-zorro-antd';
+import { of, Subject } from 'rxjs';
+import { filter, switchMap, takeUntil } from 'rxjs/operators';
+
+const SELECTORS = [
+  '[nz-input][formControlName]',
+  'nz-select[formControlName]',
+  'nz-date-picker[formControlName]',
+  'nz-week-picker[formControlName]',
+  'nz-month-picker[formControlName]',
+  'nz-year-picker[formControlName]',
+  'nz-range-picker[formControlName]'
+];
 
 @Directive({
-  selector: '[nz-input][formControlName],nz-select[formControlName],nz-date-picker[formControlName]'
+  selector: SELECTORS.join(',')
 })
 export class FormControlDirective implements OnInit, OnDestroy {
 
@@ -13,7 +29,12 @@ export class FormControlDirective implements OnInit, OnDestroy {
 
   constructor(@Optional() private ngControl: NgControl,
               @Optional() @Host() private nzSelect: NzSelectComponent,
-              @Optional() @Host() private nzDatePicker: NzDatePickerComponent) {
+              @Optional() @Host() private nzDatePicker: NzDatePickerComponent,
+              @Optional() @Host() private nzWeekPicker: NzWeekPickerComponent,
+              @Optional() @Host() private nzMonthPicker: NzMonthPickerComponent,
+              @Optional() @Host() private nzYearPicker: NzYearPickerComponent,
+              @Optional() @Host() private nzRangePicker: NzRangePickerComponent
+  ) {
   }
 
   @HostListener('blur')
@@ -31,8 +52,12 @@ export class FormControlDirective implements OnInit, OnDestroy {
       this.nzSelect.nzBlur.pipe(takeUntil(this.destroy$)).subscribe(() => {
         this.onBlur();
       });
-    } else if (this.nzDatePicker) {
-      this.nzDatePicker.nzOnOpenChange.pipe(
+    } else {
+      of(this.nzDatePicker, this.nzWeekPicker, this.nzMonthPicker, this.nzYearPicker, this.nzRangePicker)
+        .pipe(
+          filter(value => !!value),
+          switchMap(value => value.nzOnOpenChange)
+        ).pipe(
         takeUntil(this.destroy$)).subscribe(() => {
         this.onBlur();
       });

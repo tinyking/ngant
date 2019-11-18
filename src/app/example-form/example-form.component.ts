@@ -40,6 +40,10 @@ export class ExampleFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
+      dateRange: [null, [Validators.required]],
+      dateYear: [null, [Validators.required]],
+      dateMonth: [null, [Validators.required]],
+      dateWeek: [null, [Validators.required]],
       date: [null, [Validators.required]],
       user: [null, [Validators.required]],
       email: [null, [Validators.email, Validators.required]],
