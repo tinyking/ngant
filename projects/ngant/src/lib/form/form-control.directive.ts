@@ -1,18 +1,19 @@
 import { Directive, Host, HostListener, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
-import { NzSelectComponent } from 'ng-zorro-antd';
+import { NzDatePickerComponent, NzSelectComponent } from 'ng-zorro-antd';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 @Directive({
-  selector: '[nz-input][formControlName],nz-select[formControlName]'
+  selector: '[nz-input][formControlName],nz-select[formControlName],nz-date-picker[formControlName]'
 })
 export class FormControlDirective implements OnInit, OnDestroy {
 
   private destroy$ = new Subject();
 
   constructor(@Optional() private ngControl: NgControl,
-              @Optional() @Host() private nzSelect: NzSelectComponent) {
+              @Optional() @Host() private nzSelect: NzSelectComponent,
+              @Optional() @Host() private nzDatePicker: NzDatePickerComponent) {
   }
 
   @HostListener('blur')
@@ -28,6 +29,11 @@ export class FormControlDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     if (this.nzSelect) {
       this.nzSelect.nzBlur.pipe(takeUntil(this.destroy$)).subscribe(() => {
+        this.onBlur();
+      });
+    } else if (this.nzDatePicker) {
+      this.nzDatePicker.nzOnOpenChange.pipe(
+        takeUntil(this.destroy$)).subscribe(() => {
         this.onBlur();
       });
     }
