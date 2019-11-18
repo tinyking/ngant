@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { TableComponent } from './table/table.component';
+import { FormControlDirective } from './form/form-control.directive';
 
 @NgModule({
-  declarations: [TableComponent],
+  declarations: [TableComponent, FormControlDirective],
   imports: [
   ],
-  exports: []
+  exports: [
+    FormControlDirective
+  ]
 })
 export class NgantModule { }
