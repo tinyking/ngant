@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ci": "ng build ngant && ng build --prod"
+    "pkg": "ng build ngant && ng build --prod"
   },
   "private": true,
   "dependencies": {

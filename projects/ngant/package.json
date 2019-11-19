@@ -1,12 +1,19 @@
 {
   "name": "@tinyking/ngant",
   "version": "1.0.2",
+  "author": {
+    "name": "tinyking",
+    "url": "https://github.com/tinyking"
+  },
+  "repository": {
+    "url": "https://github.com/tinyking/ngant.git",
+    "type": "github"
+  },
+  "keywords": ["angular", "ng-zorro", "extension"],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.2.13",
     "@angular/core": "^8.2.13",
     "ng-zorro-antd": "^8.5.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
