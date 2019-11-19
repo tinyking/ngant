@@ -1,3 +1,4 @@
+/* tslint:disable:max-line-length */
 import { Directive, Host, HostListener, OnDestroy, OnInit, Optional } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import {
@@ -10,18 +11,8 @@ import {
 import { of, Subject } from 'rxjs';
 import { filter, switchMap, takeUntil } from 'rxjs/operators';
 
-const SELECTORS = [
-  '[nz-input][formControlName]',
-  'nz-select[formControlName]',
-  'nz-date-picker[formControlName]',
-  'nz-week-picker[formControlName]',
-  'nz-month-picker[formControlName]',
-  'nz-year-picker[formControlName]',
-  'nz-range-picker[formControlName]'
-];
-
 @Directive({
-  selector: SELECTORS.join(',')
+  selector: `[nz-input][formControlName],nz-select[formControlName],nz-date-picker[formControlName],nz-week-picker[formControlName],nz-month-picker[formControlName],nz-year-picker[formControlName],nz-range-picker[formControlName]`
 })
 export class FormControlDirective implements OnInit, OnDestroy {
 
