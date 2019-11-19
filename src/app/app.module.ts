@@ -5,10 +5,10 @@ import { NgantModule } from '../../projects/ngant/src/lib/ngant.module';
 
 import { AppComponent } from './app.component';
 import { ExampleFormComponent } from './example-form/example-form.component';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NZ_I18N, NzFormModule, zh_CN } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 
 registerLocaleData(zh);
@@ -19,12 +19,16 @@ registerLocaleData(zh);
     ExampleFormComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     NgZorroAntdModule,
+    ReactiveFormsModule,
+
+
+    NzFormModule,
 
     NgantModule
   ],
