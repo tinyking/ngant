@@ -29,6 +29,7 @@ jobs:
           node-version: 10
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm run pkg
       - run: npm publish ./dist/ngant --access public
         env:
             NODE_AUTH_TOKEN: ${{secrets.npm_token}}
@@ -44,6 +45,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@tinyking'
       - run: npm ci
+      - run: npm run pkg
       - run: npm publish ./dist/ngant
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_NPM_TOKEN}}
