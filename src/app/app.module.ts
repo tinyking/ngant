@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import { ExampleForm2Component } from './example-form2/example-form2.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleFormComponent
+    ExampleFormComponent,
+    ExampleForm2Component
   ],
   imports: [
     CommonModule,

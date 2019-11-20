@@ -12,7 +12,7 @@ import { of, Subject } from 'rxjs';
 import { filter, switchMap, takeUntil } from 'rxjs/operators';
 
 @Directive({
-  selector: `[nz-input][formControlName],nz-select[formControlName],nz-date-picker[formControlName],nz-week-picker[formControlName],nz-month-picker[formControlName],nz-year-picker[formControlName],nz-range-picker[formControlName]`
+  selector: `[ngant-validate],[formControlName],[formControl]`
 })
 export class FormControlDirective implements OnInit, OnDestroy {
 
